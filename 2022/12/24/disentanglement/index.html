@@ -71,7 +71,7 @@
                 <p>Recently, I have been trying to understand the 2021 Neurips Spotlight paper <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2110.15255">Self-Supervised Learning Disentangled Group Representation as Feature</a>. While following this line of work, I found this paper particularly interesting. It leverages Invariant Risk Minimization (<strong>IRM</strong>) and the notion of group theory to shed light on disentangled representation, a research area that has long been investigated. However, as the paper is somehow obsecure to understand, especially for those who do not have backgound in group theory, I would like to share my analysis about this research work based on my understanding. Hopefully, we all can gain new insight from this interesting paper and my explanation. </p>
 <h4 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h4><p>In <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2110.15255">Self-Supervised Learning Disentangled Group Representation as Feature</a>, the authors aim to achieve two goals: (1) fomulate the notion of “good” representation from a group theoretical view using Higgins’ definition of <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1812.02230">disentangled representation</a>; (2) propose an iterative self-supervised learning (SSL) algorithm, Interative Parition-based Invariant Risk Minimization (<strong>IP-IRM</strong>), that can disentangle features beyond augmentation features. The experiment proves that their algorithm converges to a fully disentangled representation. </p>
 <p>Although supervised learning of disentangled representation is a well-studied area, unsupervised disentaglement can not be attained beyond augmentation features and is of great significance. If we enable models to learn fully disentangled features from unlabled data, the learned factors of variations are adaptable to different downstream tasks and can futher reduce the cost of labeling and training. It is claimed in the paper that IP-IRM learns a disentangled representation with an inference process, not  generative models, making it applicable even on large-scale dataset.</p>
-<h4 id="2-A-Good-Feature-Representation"><a href="#2-A-Good-Feature-Representation" class="headerlink" title="2. A Good Feature Representation"></a>2. A Good Feature Representation</h4><p>Before obtaining disentangled representation, it is important to know what a <strong>disentangled representation</strong> is. Here, I will rephrase and simplify the definition of disentangled representation given in the paper. We can consult &lt; **Figure 1** &gt;  from the paper to get familar with the notations. </p>
+<h4 id="2-A-Good-Feature-Representation"><a href="#2-A-Good-Feature-Representation" class="headerlink" title="2. A Good Feature Representation"></a>2. A Good Feature Representation</h4><p>Before obtaining disentangled representation, it is important to know what a <strong>disentangled representation</strong> is. Here, I will rephrase and simplify the definition of disentangled representation given in the paper. We can consult <strong>Figure 1</strong> from the paper to get familar with the notations. </p>
 <p><img src="/2022/12/24/disentanglement/figure_1.png" alt="Figure 1"></p>
 <p>Let $\mathcal{U}$ be a latent space containing semantic features (e.g. attributes such as “digit” and “color”), $\mathcal{I}$ be a visual space containing images generated based on the attributes in $\mathcal{U}$ (e.g. hand-written “orange zero” and “green zero”), and $\mathcal{X}$ be the feature space cotaining vector feature representations of images in $\mathcal{I}$ (e.g. vector representations for all pixels of the “orange zero”). As a result, we can consider </p>
 <h4 id="3-Iterative-Partition-based-Invariant-Risk-Minimization-IP-IRM"><a href="#3-Iterative-Partition-based-Invariant-Risk-Minimization-IP-IRM" class="headerlink" title="3. Iterative Partition-based Invariant Risk Minimization (IP-IRM)"></a>3. Iterative Partition-based Invariant Risk Minimization (IP-IRM)</h4><h3 id="Preliminary"><a href="#Preliminary" class="headerlink" title="Preliminary"></a>Preliminary</h3><ul>
@@ -93,6 +93,15 @@
     async>
 </script>
 
+
+    <script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+    };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.min.js"></script>
   
 
 </div>
